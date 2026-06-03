@@ -276,7 +276,7 @@ WHERE cv.statut = 'Actif';`,
     title: 'Clients, contrats et paiements',
     category: 'jointures',
     difficulty: 'Moyen',
-    statement: 'Affichez le nom du client, le type de son contrat, le montant de chaque paiement effectué et sa date. Nommez la colonne montant du paiement montant_paiement.',
+    statement: 'Affichez le nom et le prénom du client, le type de son contrat, le montant de chaque paiement effectué et sa date. Nommez la colonne montant du paiement montant_paiement.',
     hint: 'Trois tables sont nécessaires : commencez par joindre les clients aux contrats, puis les contrats aux paiements.',
     solutionSql: `SELECT c.nom, c.prenom, cv.type_contrat, p.montant AS montant_paiement, p.date_paiement
 FROM clients c
