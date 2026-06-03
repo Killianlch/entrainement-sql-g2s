@@ -103,7 +103,7 @@ SELECT statut, COUNT(*) AS nb_contrats FROM contrats_vie GROUP BY statut;
 
 ### Ex 18 — Types de contrats avec plus de 6 souscriptions
 ```sql
-SELECT type_contrat, COUNT(*) AS nb FROM contrats_vie GROUP BY type_contrat HAVING nb > 6;
+SELECT type_contrat, COUNT(*) AS nb_contrats FROM contrats_vie GROUP BY type_contrat HAVING nb_contrats > 6;
 ```
 
 ---

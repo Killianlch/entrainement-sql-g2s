@@ -218,10 +218,10 @@ export const exercises = [
     title: 'Types de contrats avec plus de 6 souscriptions',
     category: 'agregations',
     difficulty: 'Difficile',
-    statement: 'Identifiez les types de contrats pour lesquels le nombre total de contrats souscrits dépasse 6. Nommez le compteur nb.',
+    statement: 'Identifiez les types de contrats pour lesquels le nombre total de contrats souscrits dépasse 6. Nommez le compteur nb_contrats.',
     hint: 'Après avoir regroupé et compté, il est possible de filtrer sur le résultat d\'une agrégation — mais pas avec WHERE.',
-    solutionSql: `SELECT type_contrat, COUNT(*) AS nb FROM contrats_vie GROUP BY type_contrat HAVING nb > 6;`,
-    expectedSql: `SELECT type_contrat, COUNT(*) AS nb FROM contrats_vie GROUP BY type_contrat HAVING nb > 6;`,
+    solutionSql: `SELECT type_contrat, COUNT(*) AS nb_contrats FROM contrats_vie GROUP BY type_contrat HAVING nb_contrats > 6;`,
+    expectedSql: `SELECT type_contrat, COUNT(*) AS nb_contrats FROM contrats_vie GROUP BY type_contrat HAVING nb_contrats > 6;`,
     explanation: 'HAVING filtre sur le résultat des agrégations, là où WHERE ne peut pas être utilisé. WHERE s\'applique avant le GROUP BY (sur les lignes brutes), HAVING s\'applique après (sur les groupes). Résultat : Assurance Vie (9) et PER (8).',
   },
 
