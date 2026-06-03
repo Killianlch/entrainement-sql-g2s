@@ -1,4 +1,4 @@
-# Solutions — Entraînement SQL Groupama G2S
+# Solutions — Entraînement SQL Thème Assurances
 
 Solutions de référence des 45 exercices.
 
