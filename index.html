@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entraînement SQL — Groupama G2S</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <link rel="stylesheet" href="/src/styles/layout.css" />
+  <link rel="stylesheet" href="/src/styles/editor.css" />
+</head>
+<body>
+
+  <div id="loading-overlay">
+    <div class="loading-box">
+      <div class="loading-spinner"></div>
+      <p class="loading-label">Initialisation de la base de données…</p>
+    </div>
+  </div>
+
+  <div id="app">
+
+    <header id="header">
+      <div class="header-left">
+        <div class="header-logo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+            <path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+            <path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"/>
+          </svg>
+        </div>
+        <span class="header-title">Entraînement SQL</span>
+        <span class="header-subtitle">Groupama G2S</span>
+      </div>
+      <div class="header-center" id="header-breadcrumb">
+        <!-- Breadcrumb dynamique -->
+      </div>
+      <div class="header-right">
+        <div class="header-progress">
+          <span id="header-progress-text">0 / 50</span>
+          <div class="header-progress-bar">
+            <div class="header-progress-fill" id="header-progress-fill" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <aside id="sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-progress">
+          <div class="sidebar-progress-bar">
+            <div class="sidebar-progress-fill" id="sidebar-progress-fill" style="width: 0%"></div>
+          </div>
+          <span class="sidebar-progress-label" id="sidebar-progress-label">0 exercice complété</span>
+        </div>
+        <nav id="exercise-nav" class="exercise-nav">
+          <!-- Rendu dynamique par navigation.js -->
+        </nav>
+        <div class="sidebar-footer">
+          <button id="btn-summary" class="sidebar-summary-btn">
+            Voir le bilan final
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main">
+      <div id="exercise-view" class="exercise-view">
+
+        <div class="exercise-header">
+          <div class="exercise-meta">
+            <span class="badge badge-category" id="exercise-category-badge">—</span>
+            <span class="badge badge-difficulty" id="exercise-difficulty-badge">—</span>
+            <span class="exercise-number" id="exercise-number"></span>
+          </div>
+          <h2 class="exercise-title" id="exercise-title">Chargement…</h2>
+        </div>
+
+        <div class="exercise-statement" id="exercise-statement">
+          <p id="exercise-statement-text"></p>
+        </div>
+
+        <div class="editor-wrapper">
+          <div class="editor-toolbar">
+            <span class="editor-label">Éditeur SQL</span>
+            <span class="editor-hint">Ctrl + Entrée pour exécuter</span>
+          </div>
+          <div id="editor"></div>
+        </div>
+
+        <div class="action-bar">
+          <div class="action-bar-left">
+            <button id="btn-verify" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Vérifier
+            </button>
+            <button id="btn-hint" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Indice
+            </button>
+            <button id="btn-solution" class="btn btn-ghost">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Solution
+            </button>
+          </div>
+          <div class="action-bar-right">
+            <button id="btn-reset-query" class="btn btn-ghost-muted">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/></svg>
+              Réinitialiser
+            </button>
+            <button id="btn-next" class="btn btn-outline" disabled>
+              Suivant
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="results-area" class="results-area">
+          <div class="results-placeholder">
+            <p>Écrivez votre requête SQL puis cliquez sur <strong>Vérifier</strong>.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="summary-view" class="summary-view hidden">
+        <!-- Rendu dynamique par summary.js -->
+      </div>
+    </main>
+
+    <aside id="right-panel">
+      <div class="panel-tabs">
+        <button class="tab-btn active" data-tab="schema">Schéma</button>
+        <button class="tab-btn" data-tab="data">Données</button>
+      </div>
+
+      <div id="tab-schema" class="tab-content">
+        <div id="schema-content">
+          <!-- Rendu dynamique par schema-panel.js -->
+        </div>
+      </div>
+
+      <div id="tab-data" class="tab-content hidden">
+        <div class="data-table-selector">
+          <label class="data-label">Table</label>
+          <select id="data-table-select" class="data-select">
+            <option value="">Sélectionner une table</option>
+            <option value="clients">clients</option>
+            <option value="contrats_vie">contrats_vie</option>
+            <option value="paiements">paiements</option>
+            <option value="conseillers">conseillers</option>
+            <option value="beneficiaires">beneficiaires</option>
+          </select>
+        </div>
+        <div id="data-content">
+          <p class="data-placeholder">Sélectionnez une table pour voir ses données.</p>
+        </div>
+      </div>
+
+      <div id="feedback-area" class="feedback-area hidden">
+        <!-- Rendu dynamique par feedback.js -->
+      </div>
+    </aside>
+
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

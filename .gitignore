@@ -1,0 +1,42 @@
+# Dépendances
+node_modules/
+
+# Build de production
+dist/
+
+# Fichiers système macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V8
+.Trashes
+
+# Fichiers système Windows
+Thumbs.db
+ehthumbs.db
+
+# Fichiers de travail du projet (documentation interne, non versionnés)
+CLAUDE.md
+PROJECT_REQUIREMENTS.md
+DATABASE_SPECIFICATION.md
+DATABSE_SPECIFICATION.md
+EXERCISES_SPECIFICATION.md
+PROJECT_PROGRESS.md
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environnement local
+.env
+.env.local
+.env.*.local
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Outils internes
+.claude/
