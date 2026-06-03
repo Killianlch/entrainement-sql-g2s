@@ -1,5 +1,7 @@
 # Entraînement SQL — Thème Assurances
 
+> Créé par **Killian Lechevalier**
+
 Plateforme web d'entraînement SQL sur le thème des assurances vie.
 
 L'utilisateur écrit de vraies requêtes SQL dans le navigateur, les exécute sur une base SQLite et reçoit un retour pédagogique immédiat. Aucun backend, aucune installation de base de données.
@@ -38,7 +40,7 @@ npm --version    # doit afficher 9.x ou plus
 
 ```bash
 # 1. Ouvrir le Terminal et aller dans le dossier du projet
-cd "/Users/killian/Desktop/EPSI/Entraînement SQL"
+cd entrainement-sql
 
 # 2. Installer les dépendances
 npm install
