@@ -243,24 +243,6 @@ Le navigateur doit supporter WebAssembly. Mettre à jour le navigateur ou en uti
 
 ---
 
-## Statut final du projet
-
-| Élément | Statut |
-|---|---|
-| Interface complète | ✅ |
-| Base de données SQLite (browser) | ✅ |
-| 45 exercices (9 catégories) | ✅ |
-| Moteur de validation par résultat | ✅ |
-| Exercices SELECT / WHERE / ORDER BY | ✅ |
-| Exercices GROUP BY / HAVING | ✅ |
-| Exercices INNER JOIN / LEFT JOIN | ✅ |
-| Exercices INSERT / UPDATE / DELETE | ✅ |
-| Exercices CREATE / ALTER / DROP TABLE | ✅ |
-| Sous-requêtes / EXISTS / UNION | ✅ |
-| Persistance localStorage | ✅ |
-| Bilan final avec stats | ✅ |
-| Tests navigateur (Playwright) | 47 / 47 passés |
-
 ```bash
 npm install && npm run dev
 # → http://localhost:5173
